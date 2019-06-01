@@ -61,11 +61,5 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
-    },
-    "repositories": {
-        "packagist": {
-            "type": "vcs",
-            "url": "https://github.com/bqrd/openapi-shop-client"
-        }
     }
 }
