@@ -26,6 +26,10 @@ class EventServiceProvider extends ServiceProvider
             QueryListener::class
         ],
 
+        \App\Events\Activity\Prize::class => [
+            \App\Listeners\UserNotice::class,
+        ],
+
     ];
 
     /**

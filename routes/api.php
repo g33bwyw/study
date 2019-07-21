@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,17 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+Route::post('login', '\App\Http\Controllers\Api\LoginController@login');
+Route::post('register', '\App\Http\Controllers\Api\RegisterController@register');
+Route::middleware('auth:api')
+    ->get('/user', function (Request $request) {
+        return 123;
+    });
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::post('/index', '\App\Http\Controllers\IndexController@index');
 });
+

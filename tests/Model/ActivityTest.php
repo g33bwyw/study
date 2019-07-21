@@ -8,8 +8,10 @@
 
 namespace Tests\Model;
 
+use App\Events\Activity\Prize as EventPrize;
 use App\Model\Activity;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
 use phpseclib\Crypt\Random;
 use Tests\TestCase;
@@ -26,5 +28,11 @@ class ActivityTest extends TestCase
 //        $obj->start_time = time();
 //        $obj->end_time = $obj->start_time + 86400;
 //        $obj->save();
+    }
+
+
+    public function testPrizeEvent()
+    {
+        event(new EventPrize('iphone 6sp'));
     }
 }
